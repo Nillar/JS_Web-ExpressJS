@@ -65,12 +65,13 @@ function viewAll(req, res) {
 function getDetails(req, res) {
     let id = url.parse(req.url)['query'].split('=')[1];
     let targetedMeme = dataBase.getById(id);
+    console.log(targetedMeme.memeSrc);
 
     let memeHTML = `<div class="content">
-  <img src="${targetedMeme.memeSrc}" alt=""/>
+  <img src="${targetedMeme.memeSrc}" alt="" />
   <h3>Title ${targetedMeme.title}</h3>
   <p> ${targetedMeme.description}</p>
-  <button><a href="${targetedMeme.posterSrc}">Download Meme</a></button>
+  <button><a href="${targetedMeme.memeSrc}" download>Download Meme</a></button>
   </div>`;
 
     fs.readFile('./views/details.html', function (err, data) {
