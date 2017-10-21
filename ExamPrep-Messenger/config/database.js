@@ -13,6 +13,7 @@ module.exports = config => {
     User.seedAdminUser()
       .then(() => {
         console.log('Database ready');
+        console.log('Listening on port ' + config.port)
       })
       .catch(reason => {
         console.log('Something went wrong');

@@ -10,6 +10,8 @@ module.exports = app => {
     app.get('/login', controllers.user.loginGet);
     app.post('/login', controllers.user.loginPost);
 
+    app.get('/about', controllers.user.getAdmin);
+
     app.all('*', (req, res) => {
         res.status(404);
         res.send('404 Not Found');

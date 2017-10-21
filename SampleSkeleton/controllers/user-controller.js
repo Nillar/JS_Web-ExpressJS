@@ -68,5 +68,11 @@ module.exports = {
             res.locals.globalError = e;
             res.render('users/login');
         }
+    },
+    getAdmin: async(req, res) =>{
+        function isAdmin() {
+            return true;
+        }
+        res.render('home/about');
     }
 };
