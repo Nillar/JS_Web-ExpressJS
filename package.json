@@ -1,0 +1,10 @@
+{
+  "name": "",
+  "version": "",
+  "dependencies": {
+    "formidable": "^1.1.1",
+    "http": "0.0.0",
+    "mongoose": "^4.12.1",
+    "querystring": "^0.2.0"
+  }
+}
