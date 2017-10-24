@@ -5,7 +5,7 @@ const encryption = require('../util/encryption');
 module.exports = {
   register: {
     get: (req, res) => {
-      res.render('user/register');
+      res.render('users/register');
     },
     post: (req, res) => {
       let userData = req.body;
@@ -15,7 +15,7 @@ module.exports = {
         userData.password !== userData.confirmedPassword
       ) {
         userData.error = 'Passwords do not match';
-        res.render('user/register', userData);
+        res.render('users/register', userData);
         return;
       }
 
@@ -42,26 +42,26 @@ module.exports = {
         })
         .catch(error => {
           userData.error = error;
-          res.render('user/register', userData);
+          res.render('users/register', userData);
         });
     }
   },
   login: {
     get: (req, res) => {
-      res.render('user/login');
+      res.render('users/login');
     },
     post: (req, res) => {
       let userData = req.body;
 
       User.findOne({ username: userData.username }).then(user => {
         if (!user || !user.authenticate(userData.password)) {
-          res.render('user/login', { error: 'Wrong credentials!' });
+          res.render('users/login', { error: 'Wrong credentials!' });
           return;
         }
 
         req.logIn(user, (err, user) => {
           if (err) {
-            res.render('user/login', { error: 'Wrong credentials!' });
+            res.render('users/login', { error: 'Wrong credentials!' });
             return;
           }
 

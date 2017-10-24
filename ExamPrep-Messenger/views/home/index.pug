@@ -2,7 +2,7 @@ extends ../layout.pug
 
 block append content
   if user
-    form(method='get' action='/user/find')
+    form(method='get' action='/users/find')
       input(type='text' name='username', placeholder='Search usernames...')
       input(type='submit' value='Search')
   else

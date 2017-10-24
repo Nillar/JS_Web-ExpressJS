@@ -5,14 +5,14 @@ module.exports = {
     if (req.isAuthenticated()) {
       next()
     } else {
-      res.redirect('/user/login')
+      res.redirect('/users/login')
     }
   },
   hasRole: role => (req, res, next) => {
     if (req.isAuthenticated() && req.user.roles.indexOf(role) > -1) {
       next()
     } else {
-      res.redirect('/user/login')
+      res.redirect('/users/login')
     }
   },
   isNotBlocked: (req, res, next) => {

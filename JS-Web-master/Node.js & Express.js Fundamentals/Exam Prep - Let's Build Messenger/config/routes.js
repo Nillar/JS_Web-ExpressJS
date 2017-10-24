@@ -3,15 +3,15 @@ const restrictedPages = require('./auth');
 
 module.exports = app => {
   app.get('/', controllers.home.get);
-  app.get('/user/register', controllers.user.register.get);
-  app.post('/user/register', controllers.user.register.post);
-  app.post('/user/logout', controllers.user.logout);
-  app.get('/user/login', controllers.user.login.get);
-  app.post('/user/login', controllers.user.login.post);
+  app.get('/users/register', controllers.user.register.get);
+  app.post('/users/register', controllers.user.register.post);
+  app.post('/users/logout', controllers.user.logout);
+  app.get('/users/login', controllers.user.login.get);
+  app.post('/users/login', controllers.user.login.post);
 
-  app.get('/user/find', restrictedPages.isAuthed, controllers.user.search);
-  app.get('/user/:id/block', restrictedPages.isAuthed, controllers.user.block);
-  app.get('/user/:id/unblock', restrictedPages.isAuthed, controllers.user.unblock);
+  app.get('/users/find', restrictedPages.isAuthed, controllers.user.search);
+  app.get('/users/:id/block', restrictedPages.isAuthed, controllers.user.block);
+  app.get('/users/:id/unblock', restrictedPages.isAuthed, controllers.user.unblock);
 
   app.get('/message/:id/like', restrictedPages.isAuthed, controllers.message.like);
   app.get('/message/:id/unlike', restrictedPages.isAuthed, controllers.message.unlike);

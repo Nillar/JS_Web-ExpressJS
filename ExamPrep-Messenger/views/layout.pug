@@ -15,13 +15,13 @@ html(lang='en')
                     li.delimeter
                     if user
                         li.align-right
-                            form#logout-form(method="post" action="/user/logout")
+                            form#logout-form(method="post" action="/users/logout")
                             a(href="javascript:document.getElementById('logout-form').submit()") Logout
                     else
                         li.align-right
-                            a(href='/user/register') Register
+                            a(href='/users/register') Register
                         li.align-right
-                            a(href='/user/login') Login
+                            a(href='/users/login') Login
         if error
             h2.message.error= error
         else if success
